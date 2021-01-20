@@ -5,7 +5,7 @@ import numpy as np
 
 
 def main():
-    model = load_model("mask_detection.h5")
+    model = load_model("mask_detection.h5", compile=False)
     face_classifier = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     labels_dict = {0: " MASK", 1: " NO MASK"}
     color_dict = {0: (0, 255, 0), 1: (255, 0, 0)}
