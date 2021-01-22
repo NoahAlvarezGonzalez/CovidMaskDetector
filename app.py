@@ -4,8 +4,6 @@ from tensorflow.keras.models import load_model
 import numpy as np
 from webcam import webcam
 
-captured_image = webcam()
-
 
 def main():
     model = load_model("mask_detection.h5")
