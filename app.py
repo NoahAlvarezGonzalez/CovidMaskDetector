@@ -2,6 +2,9 @@ import cv2
 import streamlit as st
 from tensorflow.keras.models import load_model
 import numpy as np
+from webcam import webcam
+
+captured_image = webcam()
 
 
 def main():
@@ -15,8 +18,8 @@ def main():
     frame_window = st.image([])
 
     while run:
-        camera = cv2.VideoCapture(0)
-        _, frame = camera.read()
+        captured_image = webcam()
+        frame = captured_image.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = face_classifier.detectMultiScale(gray, 1.3, 5)
 
